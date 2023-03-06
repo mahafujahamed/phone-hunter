@@ -21,10 +21,27 @@
     </header>
     <main class="bg-success">
         <section>
+            <div class="mb-3 w-50">
+                <input id="search-field" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Search your phone">
+               <div id="btn-search" class="btn btn-primary">Search</div>
+              </div>
+        </section>
+        <!-- display search result -->
+        <section>
                 <div id="phone-container" class="row row-cols-1 row-cols-md-3 g-4">
                     
-                    </div>
-                  </div>
+                </div>
+                <div id="no-found-message" class="mt-4 d-none">
+                    <h3 class="text-warning">No phone found. Please try a new search</h3>
+                </div>
+        </section>
+        <!-- Loader -->
+        <section id="loader" class="d-none">
+            <div style="height: 400px;" class="d-flex justify-content-center align-items-center">
+                <div class="spinner-border text-danger" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
         </section>
     </main>
     <!-- scripts -->
