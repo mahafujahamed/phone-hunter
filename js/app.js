@@ -15,7 +15,7 @@ const displayPhones = phones => {
              <img class="img-fluid" src="${phone.image}" class="card-img-top" alt="...">
              <div class="card-body">
                    <h5 class="card-title">${phone.phone_name}e</h5>
-              <p class="card-text">This is a longer card with supporting texbelow as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">${phone.slug}</p>
          </div>
         `;
         phoneContainer.appendChild(phoneDiv)
