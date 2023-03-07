@@ -1,4 +1,4 @@
-const loadPhones = async(searchText, dataLimit) => {
+const loadPhones = async (searchText, dataLimit) => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
     const res = await fetch(url);
     const data = await res.json();
@@ -10,19 +10,19 @@ const displayPhones = (phones, dataLimit) => {
     phoneContainer.textContent = '';
     // display 20 phones only
     const showAll = document.getElementById('show-all');
-    if(dataLimit && phones.length > 9){
+    if (dataLimit && phones.length > 9) {
         phones = phones.slice(0, 9);
         showAll.classList.remove('d-none');
     }
-    else{
-      showAll.classList.add('d-none');  
+    else {
+        showAll.classList.add('d-none');
     }
     // display no phones found
     const noPhone = document.getElementById('no-found-message');
-    if(phones.length === 0){
+    if (phones.length === 0) {
         noPhone.classList.remove('d-none');
     }
-    else{
+    else {
         noPhone.classList.add('d-none');
     }
     // display all phones
@@ -51,29 +51,29 @@ const processSearch = (dataLimit) => {
     loadPhones(searchText, dataLimit);
 }
 
-document.getElementById('btn-search').addEventListener('click', function(){
+document.getElementById('btn-search').addEventListener('click', function () {
     // start loader
     processSearch(9);
 })
 //  search input field enter key handler
-document.getElementById('search-field').addEventListener('keypress', function(e){
-    if(e.key === 'Enter'){
-       //code for enter 
-       processSearch(9);
+document.getElementById('search-field').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        //code for enter 
+        processSearch(9);
     }
 });
 const toggleSpinner = isLoading => {
     const loaderSpin = document.getElementById('loader');
-    if(isLoading){
+    if (isLoading) {
         loaderSpin.classList.remove('d-none');
     }
-    else{
-       loaderSpin.classList.add('d-none'); 
+    else {
+        loaderSpin.classList.add('d-none');
     }
 }
 
 // not the best way to load show all
-document.getElementById('btn-show-all').addEventListener('click', function(){
+document.getElementById('btn-show-all').addEventListener('click', function () {
     processSearch();
 })
 
@@ -108,5 +108,22 @@ const displayPhoneDetails = phone => {
         </ul>
     `
 }
+
+// Geolacation-----
+const x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude;
+}
+
 
 // loadPhones();
