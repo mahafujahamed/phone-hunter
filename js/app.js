@@ -91,9 +91,20 @@ const displayPhoneDetails = phone => {
     modalTitle.innerText = phone.name;
     const phoneDetails = document.getElementById('phone-details');
     phoneDetails.innerHTML = `
+        <h3>Brand: ${phone.brand}</h3>
         <p>Release Date: ${phone.releaseDate ? phone.releaseDate : 'No release date found'}</p>
+        <p>Display Size: ${phone.mainFeatures ? phone.mainFeatures.displaySize : 'No dta found'}</p>
         <p>Storage: ${phone.mainFeatures ? phone.mainFeatures.storage : 'No storage information'}</p>
-        <p>Others: ${phone.others ? phone.others.Bluetooth : 'No Bluetooth information'}
+        <p>Memory: ${phone.mainFeatures ? phone.mainFeatures.memory : 'No data found'}</p>
+        <p>Others: ${phone.others ? phone.others.Bluetooth : 'No Bluetooth information'}</p>
+        <ul>Sensors:
+            <li>${phone.mainFeatures ? phone.mainFeatures.sensors[0] : 'No sensors'}</li>
+            <li>${phone.mainFeatures ? phone.mainFeatures.sensors[1] : 'No sensors'}</li>
+            <li>${phone.mainFeatures ? phone.mainFeatures.sensors[2] : 'No sensors'}</li>
+            <li>${phone.mainFeatures ? phone.mainFeatures.sensors[3] : 'No sensors'}</li>
+            <li>${phone.mainFeatures ? phone.mainFeatures.sensors[4] : 'No sensors'}</li>
+            <li>${phone.mainFeatures ? phone.mainFeatures.sensors[5] : 'No sensors'}</li>
+        </ul>
     `
 }
 
