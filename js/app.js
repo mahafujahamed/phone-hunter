@@ -97,7 +97,8 @@ const displayPhoneDetails = phone => {
         <p>Storage: ${phone.mainFeatures ? phone.mainFeatures.storage : 'No storage information'}</p>
         <p>Memory: ${phone.mainFeatures ? phone.mainFeatures.memory : 'No data found'}</p>
         <p>Others: ${phone.others ? phone.others.Bluetooth : 'No Bluetooth information'}</p>
-        <ul>Sensors:
+        <ul>
+        <h4>Sensors: </h4>
             <li>${phone.mainFeatures ? phone.mainFeatures.sensors[0] : 'No sensors'}</li>
             <li>${phone.mainFeatures ? phone.mainFeatures.sensors[1] : 'No sensors'}</li>
             <li>${phone.mainFeatures ? phone.mainFeatures.sensors[2] : 'No sensors'}</li>
